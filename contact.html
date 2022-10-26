@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="shortcut icon" href="images/index.ico" type="image/x-icon">
+ 
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@600&display=swap" rel="stylesheet">
+  <!-- MDB -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+    rel="stylesheet"
+  />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type='text/css'>
+         body {
+           font-family: 'Athiti' !important;
+         }
+</style>
+<body> 
+             <!-- space -->
+                <div class="py-lg-5 py-md-4 py-sm-3 py-2"></div>
+                <div class="row justify-content-center pt-5">
+                    <div class="col-lg-7 col-md-10">
+                        <h3 class="fw-normal text-center mb-5 border-bottom pb-2">ติดต่อสอบถาม</h3>
+ 
+                        <form class="form_overlay" method="POST" accept-charset="UTF-8" autocomplete="off" name="contact"> 
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="fname" class="lable">ชื่อผู้ติดต่อ</label>
+                                        <input type="text" name="first_name" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="lname" class="lable">นามสกุล</label>
+                                        <input type="text" name="last_name" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="email" class="lable">อีเมล</label>
+                                        <input type="text" name="email" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="phone" class="lable">เบอร์โทร</label>
+                                        <input type="text" name="phone" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input_overlay">
+                                        <label for="subject" class="lable">เรื่องติดต่อ</label>
+                                        <input type="text" name="subject" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input_overlay textarea">
+                                        <label for="desc" class="lable">รายละเอียด</label>
+                                        <textarea name="description" cols="30" rows="4" class="form-control" required autocomplete="off"></textarea>
+                                    </div>
+                                </div>
+                                 
+                                <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary mt-3">บันทึกข้อมูล</button>
+                                </div>
+                                <p id="demo"></p>
+                            </div>
+                             
+                        </form>
+                    </div>
+                </div>
+ 
+ 
+    </main>
+ 
+ 
+     
+ 
+   <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycby7dTvrp07wy-hXsZijaMKRmTp7NlHp3lStFtSYHxcMsKVG6bFzs63s38-6sb1pSxR4/exec'
+            const form = document.forms['contact']        
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              
+                .then(response => 
+                sweetAlert({
+                    position: 'top-end',
+                    text: "บันทึกข้อมูลสำเร็จ",
+                    icon: "success",
+                    confirmButtonText: 'รับทราบ',
+                    showConfirmButton: true,
+                    timer: 5000
+                })                      
+                 //document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>Thank You for providing the details, We shall get back to you shortly !</b></div>"
+                
+                ,contact.reset())
+                
+                .catch(error => console.error('Error!', error.message))
+            })
+    </script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+              
+ </body>
+ </html>
